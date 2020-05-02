@@ -3,14 +3,28 @@
 export const addPlace = (place) => {
     return {
         type: 'ADD_PLACE',
-        value: car
+        value: place
     }
 }
 
-export const removeCar = ({place.id}) => {
+export const removePlace = (index) => {
     return {
         type: 'REMOVE_PLACE',
-        value: {place.id}
+        value: index
+    }
+}
+
+export const login = ( username ) => {
+    return {
+        type: 'LOG_IN',
+        value: username
+    }
+}
+
+export const logout = () => {
+    return {
+        type: 'LOG_OUT',
+        value: null
     }
 }
 

@@ -1,15 +1,31 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
+// import initialState from './state';
 
-const user = (state = null) => state
+const user = (state = [], action ) => {
+    switch(action.type) {
+        case 'LOG_IN':
+            return {
+                ...action.value,
+                loggedIn: true
+            }
+        case 'LOG_OUT': 
+            return {
+                ...state,
+                loggedIn: false
+            }
+        default:
+            return state
+    }
+}
 
 const places = (state = [], action) => {
     switch(action.type) {
         case 'ADD_PLACE':
             return [ ...state, action.value ]
         case 'REMOVE_PLACE':
-            const cars = [ ...state ]
-            cars.splice(action.value, 1)
-            return cars
+            const places = [ ...state ]
+            places.splice(action.value, 1)
+            return places
         default:
             return state
     }
@@ -17,7 +33,9 @@ const places = (state = [], action) => {
 
 // ADD LOGIN AND LOG OUT REDUCER
 
-
+// const google = () => {
+//     return initialState;
+// }
 // SAVE FOR API FETCH
 // const makes = (state = { makes: [] }, action) => {
 //     switch(action.type) {
@@ -32,4 +50,4 @@ const places = (state = [], action) => {
 //     }
 // }
 
-export default combineReducers({ user, places, google })
+export default combineReducers({ user, places })

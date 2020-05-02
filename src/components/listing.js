@@ -1,23 +1,23 @@
-import React from 'react'
-import listings from '../listings.json'
-import { Container, Paper } from '@material-ui/core';
+import React from 'react';
+import { Container, Paper, Typography } from '@material-ui/core';
 
 // ADD GOOGLE MAPS
 
 const Listing = (props) => {
     const id = props.match.params.id
-    const place = listings.find(l => l.id == id)
+    const place = props.places.find(p => p.id == id)
 
     return (
-        <Container maxWidth="sm" className="car-container">
-            <Paper className="car-paper">
-                <h2>{place.name}</h2>
-                <h5>{place.address.street}, {place.address.city}, {place.address.state}{place.address.zip}</h5>
-                <h5>{place.openTime} - {place.closeTime}</h5>
-                <p>{place.description}</p>
-                <h2>GOOGLE MAPS GOES HERE</h2>
-            </Paper>
-        </Container>
+    <Container maxWidth="sm" className="place-container">
+        <Paper className="place-paper">
+            <Typography>{place.name}</Typography>
+            <Typography>{place.address}</Typography>
+            <Typography>{place.openTime} - {place.closeTime}</Typography>
+            <Typography>{place.description}</Typography>
+            <Typography>GOOGLE MAPS GOES HERE</Typography>
+        </Paper>
+    </Container>
+
     )
 }
 

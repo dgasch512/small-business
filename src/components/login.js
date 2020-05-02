@@ -1,19 +1,17 @@
-import React, { Component } from 'react'
-import { Redirect } from 'react-router'
+import React, { Component } from 'react';
 import {
   TextField,
   Button,
   Container
-} from '@material-ui/core'
+} from '@material-ui/core';
 
 
-// ADD LOGIN STATE TO STORE WHEN REDUX ADDED
-
-class App extends Component {
+class Login extends Component {
   state = {
     username: '',
     password: ''
   }
+
 
   handleTextChange = (e) => {
     const state = { ...this.state }
@@ -24,8 +22,9 @@ class App extends Component {
   login = (e) => {
     e.preventDefault()
     document.cookie = "loggedIn=true;max-age=380*1000";
-
-    window.location.replace("/")
+    window.location.replace("/listings")
+  //   this.props.login( this.state.username )
+  //  this.props.history.push("/listings")
   }
 
   render() {
@@ -60,4 +59,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Login;
