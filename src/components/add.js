@@ -22,13 +22,13 @@ handleTextChange = (e) => {
 }
 
 handleSubmit = (e) => {
-  e.preventDefault()
-  const newPlace = this.state
+  e.preventDefault();
+  const newPlace = this.state;
   newPlace.id = this.props.places.length;
-  this.props.addPlace(newPlace)
-  this.setState({ isShowing: true })
-  window.alert("New Listing Added")
-
+  this.props.addPlace(newPlace);
+  this.setState({ isShowing: true });
+  window.alert("New Listing Added");
+}
 
 render() {
   return (
