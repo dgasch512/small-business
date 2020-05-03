@@ -1,10 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import {
     Button,
-    TextField,
-    Dialog,
-    DialogContent,
-    DialogTitle
+    TextField
 } from '@material-ui/core';
 
 class Add extends Component {
@@ -26,25 +23,12 @@ handleTextChange = (e) => {
 
 handleSubmit = (e) => {
   e.preventDefault()
-  const payload = { ...this.state }
-  payload.id = this.props.places.length + 1;
-  // add this.props.addCar function here
-  // also add this.setState to close the dialog
-  this.props.addPlace(payload)
+  const newPlace = this.state
+  newPlace.id = this.props.places.length;
+  this.props.addPlace(newPlace)
   this.setState({ isShowing: true })
-}
+  window.alert("New Listing Added")
 
-componentDidUpdate = (prevProps, prevState) => {
-  this.setState({
-    id: '',
-    name: '',
-    description: '',
-    openTime: '',
-    closeTime: '',
-    address: '',
-    isShowing: true
-  })
-}
 
 render() {
   return (
@@ -55,31 +39,31 @@ render() {
           <TextField 
             id='name'
             placeholder='Name'
-            value='this.state.name'
+            value={this.state.name}
             onChange={this.handleTextChange}
             required /> 
           <TextField 
             id='address'
             placeholder='Address'
-            value='this.state.address'
+            value={this.state.address}
             onChange={this.handleTextChange}
             required /> 
           <TextField 
             id='openTime'
             placeholder='Open Time'
-            value='openTime'
+            value={this.state.openTime}
             onChange={this.handleTextChange}
             required /> 
           <TextField 
             id='closeTime'
             placeholder='Close Time'
-            value='this.state.closeTime'
+            value={this.state.closeTime}
             onChange={this.handleTextChange}
             required /> 
           <TextField 
             id='description'
             placeholder='Description'
-            value='this.state.description'
+            value={this.state.description}
             onChange={this.handleTextChange}
             required /> 
           <br />

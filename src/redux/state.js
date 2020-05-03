@@ -1,7 +1,6 @@
 export default {
     user: {
         username: 'test-user-1',
-        loggedIn: false
     },
     places: [
       {

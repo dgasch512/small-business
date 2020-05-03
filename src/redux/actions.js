@@ -14,17 +14,10 @@ export const removePlace = (index) => {
     }
 }
 
-export const login = ( username ) => {
+export const newUser = (user) => {
     return {
-        type: 'LOG_IN',
-        value: username
-    }
-}
-
-export const logout = () => {
-    return {
-        type: 'LOG_OUT',
-        value: null
+        type: 'NEW_USER',
+        value: user
     }
 }
 

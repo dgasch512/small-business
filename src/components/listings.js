@@ -3,6 +3,7 @@ import '../index.css'
 import { Table, TableHead, TableRow, TableCell, TableBody  } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { Link } from 'react-router-dom';
+import checkAuth from '../checkAuth'
 
 function Listings(props) {
 
@@ -14,7 +15,7 @@ function Listings(props) {
             <TableCell>Description</TableCell>
             <TableCell>Hours</TableCell>
             <TableCell>Address</TableCell>
-            {props.user.loggedIn ?? (
+            {checkAuth() && (
               <TableCell className='deleteCol'>Delete</TableCell>
             )} 
             
@@ -27,7 +28,7 @@ function Listings(props) {
              <TableCell>{place["description"]}</TableCell>
           <TableCell>{place["openTime"]} - {place["closeTime"]}</TableCell>
           <TableCell>{place["address"]}</TableCell>
-          {props.user.loggedIn ?? (
+          {checkAuth() && (
             <TableCell>
                <DeleteIcon
                 onClick={() => props.removePlace(index)}

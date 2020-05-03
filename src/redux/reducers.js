@@ -1,18 +1,9 @@
 import { combineReducers } from 'redux';
-// import initialState from './state';
 
 const user = (state = [], action ) => {
     switch(action.type) {
-        case 'LOG_IN':
-            return {
-                ...action.value,
-                loggedIn: true
-            }
-        case 'LOG_OUT': 
-            return {
-                ...state,
-                loggedIn: false
-            }
+        case 'NEW_USER':
+            return state = action.value;
         default:
             return state
     }
@@ -30,8 +21,6 @@ const places = (state = [], action) => {
             return state
     }
 }
-
-// ADD LOGIN AND LOG OUT REDUCER
 
 // const google = () => {
 //     return initialState;

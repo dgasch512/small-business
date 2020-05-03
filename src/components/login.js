@@ -23,7 +23,7 @@ class Login extends Component {
     e.preventDefault()
     document.cookie = "loggedIn=true;max-age=380*1000";
     window.location.replace("/listings")
-  //   this.props.login( this.state.username )
+    this.props.newUser( this.state.username )
   //  this.props.history.push("/listings")
   }
 

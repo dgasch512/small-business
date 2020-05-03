@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { AppBar, Toolbar, IconButton, 
-    Typography } from '@material-ui/core'
-import MenuIcon from '@material-ui/icons/Menu'
-import { Link } from 'react-router-dom'
+    Typography } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
+import { Link } from 'react-router-dom';
+import checkAuth from '../checkAuth';
 
 
 class Navigation extends Component  {
@@ -11,7 +12,7 @@ class Navigation extends Component  {
         loggedIn: this.props.loggedIn
     }
 
-
+    
 
 
     render() {
@@ -28,13 +29,13 @@ class Navigation extends Component  {
                         <li className="nav-list-item">
                             <Link to="/listings">Listings</Link>
                         </li>
-                        {this.state.loggedIn && (
+                        {checkAuth() && (
                         <li className="nav-list-item">
                             <Link to="/add">Add</Link>
                         </li> 
                         )}
-                    {this.state.loggedIn ? (
-                                            <li className="nav-list-item"
+                        {checkAuth() ? (
+                            <li className="nav-list-item"
                             onClick={() => {
                                 document.cookie = "loggedIn="
                                 window.location.replace("/login")
